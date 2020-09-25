@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="http://localhost:8000/docs/operations-repo-structure/">
+        <link rel="canonical" href="http://bitops.works/docs/operations-repo-structure/">
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -74,10 +74,10 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="http://localhost:8000/docs/" title="Bitops" class="md-header-nav__button md-logo" aria-label="Bitops">
+    <a href="http://bitops.works/docs/" title="Bitops" class="md-header-nav__button md-logo" aria-label="Bitops">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M592.604 208.244C559.735 192.836 515.777 184 472 184H186.327c-4.952-6.555-10.585-11.978-16.72-16H376C229.157 137.747 219.403 32 96.003 32H96v128H80V32c-26.51 0-48 28.654-48 64v64c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v16c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v64c0 35.346 21.49 64 48 64V352h16v128h.003c123.4 0 133.154-105.747 279.997-136H169.606c6.135-4.022 11.768-9.445 16.72-16H472c43.777 0 87.735-8.836 120.604-24.244C622.282 289.845 640 271.992 640 256s-17.718-33.845-47.396-47.756zM488 296a8 8 0 01-8-8v-64a8 8 0 018-8c31.909 0 31.942 80 0 80z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-2v2h-6v-3h2v-2h-2V6a2 2 0 00-2-2H4V2H2v8h2V8h6v3H8v2h2v5a2 2 0 002 2h8v2h2"/></svg>
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
@@ -161,10 +161,10 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="http://localhost:8000/docs/" title="Bitops" class="md-nav__button md-logo" aria-label="Bitops">
+    <a href="http://bitops.works/docs/" title="Bitops" class="md-nav__button md-logo" aria-label="Bitops">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M592.604 208.244C559.735 192.836 515.777 184 472 184H186.327c-4.952-6.555-10.585-11.978-16.72-16H376C229.157 137.747 219.403 32 96.003 32H96v128H80V32c-26.51 0-48 28.654-48 64v64c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v16c-23.197 0-32 10.032-32 24v40c0 13.983 8.819 24 32 24v64c0 35.346 21.49 64 48 64V352h16v128h.003c123.4 0 133.154-105.747 279.997-136H169.606c6.135-4.022 11.768-9.445 16.72-16H472c43.777 0 87.735-8.836 120.604-24.244C622.282 289.845 640 271.992 640 256s-17.718-33.845-47.396-47.756zM488 296a8 8 0 01-8-8v-64a8 8 0 018-8c31.909 0 31.942 80 0 80z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-2v2h-6v-3h2v-2h-2V6a2 2 0 00-2-2H4V2H2v8h2V8h6v3H8v2h2v5a2 2 0 002 2h8v2h2"/></svg>
 
     </a>
     Bitops
@@ -491,7 +491,7 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/bitovi/bitops/issues" title="Open Issues" class="md-nav__link">
+    <a href="https://github.com/bitovi/bitops/issues" target="_blank" title="Open Issues" class="md-nav__link">
       Open Issues
     </a>
   </li>
@@ -588,6 +588,10 @@
 │   │   ├── bitops.after-deploy.d
 │   │   ├── bitops.before-deploy.d
 │   │   └── bitops.config.yml
+│   ├── cloudformation
+│   │   ├── bitops.after-deploy.d
+│   │   ├── bitops.before-deploy.d
+│   │   └── bitops.config.yml
 │   ├── helm
 │   │   ├── bitops.after-deploy.d
 │   │   ├── bitops.before-deploy.d
@@ -601,6 +605,10 @@
     │   ├── bitops.after-deploy.d
     │   ├── bitops.before-deploy.d
     │   └── bitops.config.yml
+    │   ├── cloudformation
+    │   ├── bitops.after-deploy.d
+    │   ├── bitops.before-deploy.d
+    │   └── bitops.config.yml
     ├── helm
     │   ├── bitops.after-deploy.d
     │   ├── bitops.before-deploy.d
@@ -612,14 +620,20 @@
 </code></pre>
 
 <h4 id="environment-directories">Environment Directories</h4>
-<p>These directories live at the root of an operations repository and are used to separate applications and environments. TODO</p>
+<p>These directories live at the root of an operations repository and are used to separate applications and environments. Depending on your usecase, you may have an environment for <code>production</code>, <code>test</code> and <code>dev</code> or these traditional environments may be further separated into individual services. This pattern is preferential to having a branch for each environment as this allows the state of all your infrastructure to be managed from one location.</p>
+<p>When running bitops, you provide the environment variable <code>ENVIRONMENT</code>. This tells bitops what environment to work in for that run. A full CI/CD pipeline may call bitops multiple times if it requires one environment to run as a pre-requisite for another.</p>
 <h4 id="tool-directories">Tool directories</h4>
-<p>Within an environment directory are directories grouping supported tools by name. Each of these directories is optional. For example, if your application only requires <code>terraform/</code> to execute, you do not need an <code>ansible/</code> or <code>helm/</code> directory in your environment.</p>
-<p>This directory is also where you put your infrastructure code for the tool.</p>
+<p>Within an environment directory are directories grouping supported tools by name. Each of these directories is optional. For example, if your application only requires <code>terraform/</code> to execute, you do not need an <code>ansible/</code>, <code>cloudformation/</code> or <code>helm/</code> directory in your environment.</p>
+<p>This directory is also where you put your infrastructure code associated with the respective tool.</p>
 <h4 id="lifecycle-directories">Lifecycle directories</h4>
-<p>Within a tool directory, you can optionally have a <code>bitops.before-deploy.d/</code> and/or a <code>bitops.after-deploy.d/</code>. TODO</p>
+<p>Within a tool directory, you can optionally have a <code>bitops.before-deploy.d/</code> and/or a <code>bitops.after-deploy.d/</code>. You can put arbitrary <code>*.sh</code> scripts in here and they will be run before or after the tool executes. More for information see <a href="/lifecycle">lifecycle</a> docs.</p>
+<p>If bitops is reporting it can't find your scripts, make sure the scripts have execute permissions.</p>
+<pre><code>chmod +x bitops.before-deploy.d/*
+chmod +x bitops.after-deploy.d/*
+</code></pre>
+
 <h4 id="bitopsconfigyml">bitops.config.yml</h4>
-<p>Each tool is traditionally controlled with a set of cli arguements. Instead of defining these cli arguments within your pipeline configuration, these arguements can instead be defined using environment variables or within a <code>bitops.config.yml</code> file. While the core schema for this file is common betwen tools, the specific properties and environment variable equivilants vary from tool to tool. See <a href="/docs/configuration.md">Bitops Configuration</a> for details.</p>
+<p>Each tool is traditionally controlled with a set of cli arguements. Instead of defining these cli arguments within your pipeline configuration, these arguements can instead be defined using environment variables or within a <code>bitops.config.yml</code> file. While the core schema for this file is common betwen tools, the specific properties and environment variable equivilants vary from tool to tool. See <a href="/configuration-base">Bitops Configuration</a> for details.</p>
                 
               
               

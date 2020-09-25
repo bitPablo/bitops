@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>http://localhost:8000/docs/</loc>
+     <loc>http://bitops.works/docs/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/operations-repo-structure/</loc>
+     <loc>http://bitops.works/docs/operations-repo-structure/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/configuration-base/</loc>
+     <loc>http://bitops.works/docs/configuration-base/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/cloud-configuration/configuration-aws/</loc>
+     <loc>http://bitops.works/docs/cloud-configuration/configuration-aws/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/tool-configuration/configuration-terraform/</loc>
+     <loc>http://bitops.works/docs/tool-configuration/configuration-terraform/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/tool-configuration/configuration-ansible/</loc>
+     <loc>http://bitops.works/docs/tool-configuration/configuration-ansible/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/tool-configuration/configuration-helm/</loc>
+     <loc>http://bitops.works/docs/tool-configuration/configuration-helm/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/tool-configuration/configuration-cloudformation/</loc>
+     <loc>http://bitops.works/docs/tool-configuration/configuration-cloudformation/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/lifecycle/</loc>
+     <loc>http://bitops.works/docs/lifecycle/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/default-environment/</loc>
+     <loc>http://bitops.works/docs/default-environment/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/examples/</loc>
+     <loc>http://bitops.works/docs/examples/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/contributing/contributing/</loc>
+     <loc>http://bitops.works/docs/contributing/contributing/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/contributing/development/</loc>
+     <loc>http://bitops.works/docs/contributing/development/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/contributing/DCO/</loc>
+     <loc>http://bitops.works/docs/contributing/DCO/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>http://localhost:8000/docs/license/</loc>
+     <loc>http://bitops.works/docs/license/</loc>
      <lastmod>2020-09-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
