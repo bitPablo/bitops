@@ -472,7 +472,55 @@
 -e AWS_SECRET_ACCESS_KEY=skip \
 -e AWS_DEFAULT_REGION=&quot;us-east-1&quot; \
 -v $(pwd):/opt/bitops_deployment \
-bitovi/bitops:latest
+connor:test
+</code></pre>
+
+<p>In the logs you will see:</p>
+<p>Creation of <code>hosts.yaml</code></p>
+<pre><code>Terraform will perform the following actions:
+
+  # local_file.ansible_inventory will be created
+  + resource &quot;local_file&quot; &quot;ansible_inventory&quot; {
+      + content              = &lt;&lt;~EOT
+            my-servers:
+              hosts:
+                localhost  
+              vars:
+                ansible_connection: local
+        EOT
+      + directory_permission = &quot;0777&quot;
+      + file_permission      = &quot;0777&quot;
+      + filename             = &quot;/tmp/tmp.hxYnhz1NCU/test/terraform/hosts.yaml&quot;
+      + id                   = (known after apply)
+    }
+
+  # null_resource.test_resource will be created
+  + resource &quot;null_resource&quot; &quot;test_resource&quot; {
+      + id = (known after apply)
+    }
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+</code></pre>
+
+<p>A terraform post hook showing the contents of <code>hosts.yaml</code></p>
+<pre><code>+ cat hosts.yaml
+my-servers:
+  hosts:
+    localhost  
+  vars:
+    ansible_connection: local
+</code></pre>
+
+<p>The ansible playbook running using <code>hosts.yaml</code> as its input</p>
+<pre><code>ok: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] =&gt; {
+    &quot;msg&quot;: &quot;ansible debug&quot;
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 </code></pre>
                 
               
