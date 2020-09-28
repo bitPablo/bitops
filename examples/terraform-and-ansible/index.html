@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="http://bitops.works/docs/examples/terraform-lifecycle-hooks/">
+        <link rel="canonical" href="http://bitops.works/docs/examples/terraform-and-ansible/">
       
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
@@ -464,7 +464,8 @@
                 
                   <h1>Index</h1>
                 
-                <p>To run this example, open a terminal in this directory and run</p>
+                <p>This example shows how terraform could be used to provision infrastructure and then passed on to ansible for configuration.</p>
+<p>To run this example, open a terminal in this directory and run</p>
 <pre><code>docker run \
 -e ENVIRONMENT=&quot;test&quot; \
 -e AWS_ACCESS_KEY_ID=skip \
@@ -472,24 +473,6 @@
 -e AWS_DEFAULT_REGION=&quot;us-east-1&quot; \
 -v $(pwd):/opt/bitops_deployment \
 bitovi/bitops:latest
-</code></pre>
-
-<p>We should see logs showing the before and after scripts running</p>
-<pre><code>+ /bin/bash -x /tmp/tmp.4jcNkVb3sN/test/terraform/bitops.before-deploy.d/my-before-script.sh
-I am a before terraform lifecycle script!
-+ set -x
-+ echo 'I am a before terraform lifecycle script!'
-...
-null_resource.test_resource: Creating...
-null_resource.test_resource: Provisioning with 'local-exec'...
-null_resource.test_resource (local-exec): Executing: [&quot;/bin/sh&quot; &quot;-c&quot; &quot;echo I am a test terraform resource&quot;]
-null_resource.test_resource (local-exec): I am a test terraform resource
-null_resource.test_resource: Creation complete after 0s [id=8496749575343682584]
-...
-+ /bin/bash -x /tmp/tmp.4jcNkVb3sN/test/terraform/bitops.after-deploy.d/my-after-script.sh
-+ set -x
-+ echo 'I am a after terraform lifecycle script!'
-I am a after terraform lifecycle script!
 </code></pre>
                 
               
