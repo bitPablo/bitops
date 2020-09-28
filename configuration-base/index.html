@@ -1,7 +1,4 @@
 
-
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -14,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.1">
     
     
       
@@ -22,19 +19,21 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.d3202873.min.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ff0a5ce4.min.css">
-      
+      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
       
         
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
         
-        <meta name="theme-color" content="#ef5552">
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
       
     
     
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -52,11 +51,13 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="red" data-md-color-accent="red">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+      
   
-    
-      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -146,8 +147,6 @@
 </header>
     
     <div class="md-container" data-md-component="container">
-      
-        
       
       
         
@@ -646,9 +645,6 @@
               
                 
                 
-                  
-                
-                
                 <h1 id="base-configuration">Base Configuration</h1>
 <p>Each deployment tool is traditionally controlled with a set of cli arguments. Instead of defining arguments within your pipeline configuration, they
  can instead either be defined with environment variables or in a <code>bitops.config.yml</code> file. While the core schema for a <code>bitops.config.yml</code> file is common betwen tools, the specific properties and environment variable equivilants vary from tool to tool.</p>
@@ -674,7 +670,7 @@
 <li><strong>default:</strong> <code>""</code></li>
 <li><strong>required:</strong> yes</li>
 </ul>
-<p>Each bitops run is done against a single environment. This property tells bitops which environment to run. For more information on environments, see <a href="/operations-repo-structure#environment-directories">Operations Repo Structure</a>.</p>
+<p>Each bitops run is done against a single environment. This property tells bitops which environment to run. For more information on environments, see <a href="../operations-repo-structure/#environment-directories">Operations Repo Structure</a>.</p>
 <hr />
 <h3 id="kubeconfig_base64">kubeconfig_base64</h3>
 <ul>
@@ -697,18 +693,18 @@
 <li><strong>Environment Variable:</strong> <code>BITOPS_DEFAULT_REPLACE</code></li>
 <li><strong>default:</strong> <code>false</code></li>
 </ul>
-<p>If true, <a href="/default-environment">file mergers</a> will replace instead of create a copy during a merge</p>
+<p>If true, <a href="../default-environment/">file mergers</a> will replace instead of create a copy during a merge</p>
 <hr />
 <h2 id="cloud-providers">Cloud Providers</h2>
 <ul>
-<li><a href="/cloud-configuration/configuration-aws">AWS</a></li>
+<li><a href="../cloud-configuration/configuration-aws/">AWS</a></li>
 </ul>
 <h2 id="tool-configuration">Tool Configuration</h2>
 <ul>
-<li><a href="tool-configuration/configuration-ansible">Ansible</a></li>
-<li><a href="/tool-configuration/configuration-helm">Helm</a></li>
-<li><a href="/tool-configuration/configuration-terraform">Terraform</a></li>
-<li><a href="/tool-configuration/configuration-cloudformation">Cloudformation</a></li>
+<li><a href="../tool-configuration/configuration-ansible/">Ansible</a></li>
+<li><a href="../tool-configuration/configuration-helm/">Helm</a></li>
+<li><a href="../tool-configuration/configuration-terraform/">Terraform</a></li>
+<li><a href="../tool-configuration/configuration-cloudformation/">Cloudformation</a></li>
 </ul>
                 
               
@@ -807,15 +803,15 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.2d1db4bd.min.js"></script>
-      <script src="../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../assets/javascripts/bundle.aa3f9871.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

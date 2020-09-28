@@ -1,7 +1,4 @@
 
-
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -14,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.1">
     
     
       
@@ -22,19 +19,21 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.d3202873.min.css">
-      
-        <link rel="stylesheet" href="assets/stylesheets/palette.ff0a5ce4.min.css">
-      
+      <link rel="stylesheet" href="assets/stylesheets/main.38780c08.min.css">
       
         
+        <link rel="stylesheet" href="assets/stylesheets/palette.3f72e892.min.css">
         
-        <meta name="theme-color" content="#ef5552">
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
       
     
     
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -52,11 +51,13 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="red" data-md-color-accent="red">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+      
   
-    
-      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -146,8 +147,6 @@
 </header>
     
     <div class="md-container" data-md-component="container">
-      
-        
       
       
         
@@ -648,21 +647,18 @@
               
                 
                 
-                  
-                
-                
                 <h1 id="bitops">Bitops</h1>
 <hr />
 <p><img alt="LICENSE" src="https://img.shields.io/github/license/bitovi/bitops" />
 <img alt="Latest Release" src="https://img.shields.io/github/v/release/bitovi/bitops" />
 <a href="https://www.bitovi.com/community/slack?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img alt="Join our Slack" src="https://img.shields.io/badge/slack-join%20chat-611f69.svg" /></a></p>
-<p>Bitops is an opinionated deployment tool that bundles <a href="#supported-tools">supported devops tools</a> along with a built in understanding of an <a href="/operations-repo-structure">operations repository structure</a>. The combination of these two things makes it easy to automate the provisionning and configuration of cloud infrastructure from basic VMs to complex kubernetes deployments.</p>
+<p>Bitops is an opinionated deployment tool that bundles <a href="#supported-tools">supported devops tools</a> along with a built in understanding of an <a href="operations-repo-structure/">operations repository structure</a>. The combination of these two things makes it easy to automate the provisionning and configuration of cloud infrastructure from basic VMs to complex kubernetes deployments.</p>
 <hr />
 <h2 id="features">Features</h2>
 <ul>
-<li><strong><a href="/configuration-base">Configurable</a>:</strong> Configure how you want bitops to deploy your application with environment variables or yaml</li>
-<li><strong><a href="/lifecycle">Event Hooks</a>:</strong> If bitops doesn't have built-in support for your usecase, execute arbitrary bash scripts at different points in bitops' lifecycle.</li>
-<li><strong><a href="/examples">Run Anywhere</a>:</strong> By bundling all logic in bitops, you can have the same experience regardless of which pipeline service runs your CI. You can even run bitops locally!</li>
+<li><strong><a href="configuration-base/">Configurable</a>:</strong> Configure how you want bitops to deploy your application with environment variables or yaml</li>
+<li><strong><a href="lifecycle/">Event Hooks</a>:</strong> If bitops doesn't have built-in support for your usecase, execute arbitrary bash scripts at different points in bitops' lifecycle.</li>
+<li><strong><a href="examples/">Run Anywhere</a>:</strong> By bundling all logic in bitops, you can have the same experience regardless of which pipeline service runs your CI. You can even run bitops locally!</li>
 </ul>
 <h2 id="how-it-works">How it works</h2>
 <p>Bitops is a boiler plate docker image for DevOps work. An operations repository is mounted to a bitops image's <code>/opt/bitops_deployment</code> directory. Bitops will</p>
@@ -690,27 +686,27 @@ docker run bitovi/bitops -v $(pwd):/opt/bitops_deployment
 <li>Configure aceess to your cloud provider</li>
 <li>Configure how you want your deployment tools to execute</li>
 </ol>
-<p><a href="/configuration-base">Get Started</a></p>
+<p><a href="configuration-base">Get Started</a></p>
 <h2 id="supported-tools">Supported Tools</h2>
 <ul>
-<li><a href="/tool-configuration/configuration-cloudformation">Provision infrastructure with CloudFormation</a></li>
-<li><a href="/tool-configuration/configuration-terraform">Provision infrastructure with Terraform</a></li>
-<li><a href="tool-configuration/configuration-ansible">Configure infrastructure with Ansible</a></li>
-<li><a href="/tool-configuration/configuration-helm">Deploy to kubernetes with Helm</a></li>
+<li><a href="tool-configuration/configuration-cloudformation/">Provision infrastructure with CloudFormation</a></li>
+<li><a href="tool-configuration/configuration-terraform/">Provision infrastructure with Terraform</a></li>
+<li><a href="tool-configuration/configuration-ansible/">Configure infrastructure with Ansible</a></li>
+<li><a href="tool-configuration/configuration-helm/">Deploy to kubernetes with Helm</a></li>
 </ul>
 <h2 id="supported-cloud-providers">Supported Cloud Providers</h2>
 <ul>
-<li><a href="/cloud-configuration/configuration-aws">Amazon Web Services (AWS)</a></li>
+<li><a href="cloud-configuration/configuration-aws/">Amazon Web Services (AWS)</a></li>
 <li>Microsoft Azure Cloud (Azure) - <a href="https://github.com/bitovi/bitops/issues/13">TODO</a></li>
 <li>Google Cloud Engine (GCE) - <a href="https://github.com/bitovi/bitops/issues/14">TODO</a></li>
 </ul>
 <h2 id="support-contributing">Support / Contributing</h2>
-<p>We welcome any contributions from the community with open arms. Take a look at our <a href="/contributing/contributing">Contributing</a> guide.</p>
+<p>We welcome any contributions from the community with open arms. Take a look at our <a href="contributing/contributing/">Contributing</a> guide.</p>
 <p>Come hangout with us on <a href="https://www.bitovi.com/community/slack">Slack</a>!</p>
 <h2 id="release-history">Release History</h2>
 <p>See <a href="https://github.com/bitovi/bitops/releases">Releases</a>.</p>
 <h2 id="license">License</h2>
-<p><a href="/license">MIT License</a>.</p>
+<p><a href="license/">MIT License</a>.</p>
                 
               
               
@@ -794,15 +790,15 @@ docker run bitovi/bitops -v $(pwd):/opt/bitops_deployment
       
     </div>
     
-      <script src="assets/javascripts/vendor.2d1db4bd.min.js"></script>
-      <script src="assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="assets/javascripts/bundle.aa3f9871.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: ".",
           features: [],
           search: Object.assign({
-            worker: "assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

@@ -1,7 +1,4 @@
 
-
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -14,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.1">
     
     
       
@@ -22,19 +19,21 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.d3202873.min.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ff0a5ce4.min.css">
-      
+      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
       
         
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
         
-        <meta name="theme-color" content="#ef5552">
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
       
     
     
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -52,11 +51,13 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="red" data-md-color-accent="red">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+      
   
-    
-      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -146,8 +147,6 @@
 </header>
     
     <div class="md-container" data-md-component="container">
-      
-        
       
       
         
@@ -578,9 +577,6 @@
               
                 
                 
-                  
-                
-                
                 <h1 id="operations-repo-structure">Operations Repo Structure</h1>
 <p>Bitops expects an operations repo to be in the following structure</p>
 <pre><code>├── production-serviceA
@@ -626,14 +622,14 @@
 <p>Within an environment directory are directories grouping supported tools by name. Each of these directories is optional. For example, if your application only requires <code>terraform/</code> to execute, you do not need an <code>ansible/</code>, <code>cloudformation/</code> or <code>helm/</code> directory in your environment.</p>
 <p>This directory is also where you put your infrastructure code associated with the respective tool.</p>
 <h4 id="lifecycle-directories">Lifecycle directories</h4>
-<p>Within a tool directory, you can optionally have a <code>bitops.before-deploy.d/</code> and/or a <code>bitops.after-deploy.d/</code>. You can put arbitrary <code>*.sh</code> scripts in here and they will be run before or after the tool executes. More for information see <a href="/lifecycle">lifecycle</a> docs.</p>
+<p>Within a tool directory, you can optionally have a <code>bitops.before-deploy.d/</code> and/or a <code>bitops.after-deploy.d/</code>. You can put arbitrary <code>*.sh</code> scripts in here and they will be run before or after the tool executes. More for information see <a href="../lifecycle/">lifecycle</a> docs.</p>
 <p>If bitops is reporting it can't find your scripts, make sure the scripts have execute permissions.</p>
 <pre><code>chmod +x bitops.before-deploy.d/*
 chmod +x bitops.after-deploy.d/*
 </code></pre>
 
 <h4 id="bitopsconfigyml">bitops.config.yml</h4>
-<p>Each tool is traditionally controlled with a set of cli arguements. Instead of defining these cli arguments within your pipeline configuration, these arguements can instead be defined using environment variables or within a <code>bitops.config.yml</code> file. While the core schema for this file is common betwen tools, the specific properties and environment variable equivilants vary from tool to tool. See <a href="/configuration-base">Bitops Configuration</a> for details.</p>
+<p>Each tool is traditionally controlled with a set of cli arguements. Instead of defining these cli arguments within your pipeline configuration, these arguements can instead be defined using environment variables or within a <code>bitops.config.yml</code> file. While the core schema for this file is common betwen tools, the specific properties and environment variable equivilants vary from tool to tool. See <a href="../configuration-base/">Bitops Configuration</a> for details.</p>
                 
               
               
@@ -731,15 +727,15 @@ chmod +x bitops.after-deploy.d/*
       
     </div>
     
-      <script src="../assets/javascripts/vendor.2d1db4bd.min.js"></script>
-      <script src="../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../assets/javascripts/bundle.aa3f9871.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

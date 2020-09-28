@@ -1,7 +1,4 @@
 
-
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -14,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.0.1">
     
     
       
@@ -22,19 +19,21 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.d3202873.min.css">
-      
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ff0a5ce4.min.css">
-      
+      <link rel="stylesheet" href="../assets/stylesheets/main.38780c08.min.css">
       
         
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f72e892.min.css">
         
-        <meta name="theme-color" content="#ef5552">
+          
+          
+          <meta name="theme-color" content="#ef5552">
+        
       
     
     
     
       
+        
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
@@ -52,11 +51,13 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="red" data-md-color-accent="red">
+      
+        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+      
   
-    
-      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -146,8 +147,6 @@
 </header>
     
     <div class="md-container" data-md-component="container">
-      
-        
       
       
         
@@ -550,9 +549,6 @@
               
                 
                 
-                  
-                
-                
                 <h1 id="execution-lifecycle">Execution Lifecycle</h1>
 <h2 id="lifecycle-hooks">Lifecycle hooks</h2>
 <p>Within each tool directory, you can optionally have a <code>bitops.before-deploy.d/</code> and/or a <code>bitops.after-deploy.d/</code>. As shown above, if any shell scripts exist within these directories, bitops will execute them first.</p>
@@ -565,7 +561,7 @@
 <li>If a <code>terraform/</code> directory exists within the selected environment<ul>
 <li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a> </li>
 <li>Load <code>bitops.config.yml</code> and set environment</li>
-<li>Merge contents with <a href="/default-environment">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
+<li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
 <li>Select terraform version</li>
 <li>Run <code>terraform init</code></li>
 <li>Select <code>terraform workspace</code></li>
@@ -577,7 +573,7 @@
 <li>If a <code>ansible/</code> directory exists within the selected environment<ul>
 <li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
 <li>Load <code>bitops.config.yml</code> and set environment - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
-<li>Merge contents with <a href="/default-environment">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
+<li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
 <li>Run <code>ansible-playbook $playbook</code> for each <code>*.yaml</code> or <code>*.yml</code> file in <code>$env/ansible/</code> </li>
 <li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
 </ul>
@@ -586,7 +582,7 @@
 <li>Run the following for <code>$env/helm/$ENVIRONMENT_HELM_SUBDIRECTORY/</code> or for all charts in <code>$env/helm/</code><ul>
 <li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
 <li>Load <code>bitops.config.yml</code> and set environment</li>
-<li>Merge contents with <a href="/default-environment">Default environment</a></li>
+<li>Merge contents with <a href="../default-environment/">Default environment</a></li>
 <li>Use <code>$KUBE_CONFIG_PATH</code> if defined, if not use aws cli to build .kubeconfig</li>
 <li>Gather all values files - TODO document</li>
 <li>Run <code>helm dep up</code></li>
@@ -601,7 +597,7 @@
 <li>If a <code>cloudformation/</code> directory exists within the selected environment<ul>
 <li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
 <li>Load <code>bitops.config.yml</code> and set environment</li>
-<li>Merge contents with <a href="/default-environment">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
+<li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
 <li>Run cfn template validation</li>
 <li>Create or delete cfn stack. Wait for completion</li>
 <li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
@@ -705,15 +701,15 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.2d1db4bd.min.js"></script>
-      <script src="../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/vendor.77e55a48.min.js"></script>
+      <script src="../assets/javascripts/bundle.aa3f9871.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+            worker: "../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
