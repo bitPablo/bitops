@@ -554,6 +554,7 @@
 <p>Within each tool directory, you can optionally have a <code>bitops.before-deploy.d/</code> and/or a <code>bitops.after-deploy.d/</code>. As shown above, if any shell scripts exist within these directories, bitops will execute them first.</p>
 <p>This is a useful way to extend the functionality of bitops. A popular usecase we've seen is loading secrets or dynamically editing <code>bitops.config.yml</code></p>
 <h2 id="detailed-execution-flow">Detailed Execution Flow</h2>
+<p><img alt="lifecycle diagram" src="../assets/images/lifecycle.png" /></p>
 <p>A single run of Bitops will</p>
 <ol>
 <li>Copy the contents of <code>/opt/bitops_deployment</code> to a temporary working directory</li>

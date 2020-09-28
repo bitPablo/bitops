@@ -616,7 +616,7 @@
 </code></pre>
 
 <h4 id="environment-directories">Environment Directories</h4>
-<p>These directories live at the root of an operations repository and are used to separate applications and environments. Depending on your usecase, you may have an environment for <code>production</code>, <code>test</code> and <code>dev</code> or these traditional environments may be further separated into individual services. This pattern is preferential to having a branch for each environment as this allows the state of all your infrastructure to be managed from one location.</p>
+<p>These directories live at the root of an operations repository and are used to separate applications and environments. Depending on your usecase, you may have an environment for <code>production</code>, <code>test</code> and <code>dev</code> or these traditional environments may be further separated into individual services. This pattern is preferential to having a branch for each environment as this allows the state of all your infrastructure to be managed from one location without merging potentially breaking an environment.</p>
 <p>When running bitops, you provide the environment variable <code>ENVIRONMENT</code>. This tells bitops what environment to work in for that run. A full CI/CD pipeline may call bitops multiple times if it requires one environment to run as a pre-requisite for another.</p>
 <h4 id="tool-directories">Tool directories</h4>
 <p>Within an environment directory are directories grouping supported tools by name. Each of these directories is optional. For example, if your application only requires <code>terraform/</code> to execute, you do not need an <code>ansible/</code>, <code>cloudformation/</code> or <code>helm/</code> directory in your environment.</p>
