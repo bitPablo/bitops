@@ -440,12 +440,18 @@
     values.yaml (Helm)
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="values.yaml (Helm)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#example_2" class="md-nav__link">
     Example
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -642,12 +648,18 @@
     values.yaml (Helm)
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="values.yaml (Helm)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#example_2" class="md-nav__link">
     Example
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -763,7 +775,7 @@ rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include
 
 <h3 id="general-yamlyml">General .yaml/.yml</h3>
 <p>Files that only exist in the <code>default</code> environment will be copied over.</p>
-<p>TODO ytt</p>
+<p>Files from the <code>default</code> environment that share its name and path will be merged.</p>
 <h3 id="valuesyaml-helm">values.yaml (Helm)</h3>
 <p>helm has built in support for merging multiple <code>values.yaml</code> files. Bitops will look for files in the following locations and pass them in to helm with with the <code>-f</code> in the same order they are found</p>
 <ol>
@@ -774,7 +786,7 @@ rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include
 <li>Any yaml in active environment's <code>$chart/values-files/</code> directory</li>
 <li>Any yaml in default environment's <code>$chart/values-files/</code> directory</li>
 </ol>
-<h3 id="example_2">Example</h3>
+<h4 id="example_2">Example</h4>
 <p>The following operations repo structure</p>
 <pre><code>├── default
 │   └── helm
@@ -803,7 +815,7 @@ my-first-chart/
 -f test/helm/my-first-chart/values-versions.yaml \
 -f default/helm/my-first-chart/values-versions.yaml \
 -f test/helm/my-first-chart/values-files/my-first-chart-values.yaml \
--f default/helm/my-first-chart/values-files/my-first-chart-default-values.yaml \
+-f default/helm/my-first-chart/values-files/my-first-chart-default-values.yaml
 </code></pre>
                 
               
