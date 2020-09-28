@@ -751,10 +751,10 @@ rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include
 <p><code>.sh</code> files from the <code>default</code> environment that share its name and path with a file in the active environment will not be copied over.</p>
 <h4 id="example_1">Example</h4>
 <p>Before default merge</p>
-<pre><code>└── default
-|   └── terraform
-|       ├── bitops.after-deploy.d
-|       │   └── default-after-script.sh
+<pre><code>├── default
+│   └── terraform
+│       ├── bitops.after-deploy.d
+│       │   └── default-after-script.sh
 └── test
     └── terraform
         └── bitops.config.yml
@@ -762,10 +762,10 @@ rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include
 </code></pre>
 
 <p>After default merge</p>
-<pre><code>└── default
-|   └── terraform
-|       ├── bitops.after-deploy.d
-|       │   └── default-after-script.sh
+<pre><code>├── default
+│   └── terraform
+│       ├── bitops.after-deploy.d
+│       │   └── default-after-script.sh
 └── test
     └── terraform
         ├── bitops.after-deploy.d
