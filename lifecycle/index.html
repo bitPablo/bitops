@@ -13,7 +13,7 @@
     
     
       
-        <title>Lifecycle - Bitops</title>
+        <title>Lifecycle - BitOps</title>
       
     
     
@@ -73,7 +73,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Bitops" class="md-header-nav__button md-logo" aria-label="Bitops">
+    <a href=".." title="BitOps" class="md-header-nav__button md-logo" aria-label="BitOps">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-2v2h-6v-3h2v-2h-2V6a2 2 0 00-2-2H4V2H2v8h2V8h6v3H8v2h2v5a2 2 0 002 2h8v2h2"/></svg>
@@ -86,7 +86,7 @@
       
         <div class="md-header-nav__ellipsis">
           <span class="md-header-nav__topic md-ellipsis">
-            Bitops
+            BitOps
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
@@ -158,13 +158,13 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Bitops" class="md-nav__button md-logo" aria-label="Bitops">
+    <a href=".." title="BitOps" class="md-nav__button md-logo" aria-label="BitOps">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-2v2h-6v-3h2v-2h-2V6a2 2 0 00-2-2H4V2H2v8h2V8h6v3H8v2h2v5a2 2 0 002 2h8v2h2"/></svg>
 
     </a>
-    Bitops
+    BitOps
   </label>
   
     <div class="md-nav__source">
@@ -553,12 +553,12 @@
 <p>This is a useful way to extend the functionality of bitops. A popular usecase we've seen is loading secrets or dynamically editing <code>bitops.config.yml</code></p>
 <h2 id="detailed-execution-flow">Detailed Execution Flow</h2>
 <p><img alt="lifecycle diagram" src="../assets/images/lifecycle.png" /></p>
-<p>A single run of Bitops will</p>
+<p>A single run of BitOps will</p>
 <ol>
 <li>Copy the contents of <code>/opt/bitops_deployment</code> to a temporary working directory</li>
 <li>Attempt to setup a cloud provider</li>
 <li>If a <code>terraform/</code> directory exists within the selected environment<ul>
-<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a> </li>
+<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts </li>
 <li>Load <code>bitops.config.yml</code> and set environment</li>
 <li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
 <li>Select terraform version</li>
@@ -566,20 +566,20 @@
 <li>Select <code>terraform workspace</code></li>
 <li>Run <code>terraform plan</code></li>
 <li>Run <code>terraform apply</code> or <code>terraform destroy</code></li>
-<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
+<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts</li>
 </ul>
 </li>
 <li>If a <code>ansible/</code> directory exists within the selected environment<ul>
-<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
-<li>Load <code>bitops.config.yml</code> and set environment - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
+<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts</li>
+<li>Load <code>bitops.config.yml</code> and set environment</li>
 <li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
 <li>Run <code>ansible-playbook $playbook</code> for each <code>*.yaml</code> or <code>*.yml</code> file in <code>$env/ansible/</code> </li>
-<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
+<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts</li>
 </ul>
 </li>
 <li>If a <code>helm/</code> directory exists within the selected environment<ul>
 <li>Run the following for <code>$env/helm/$ENVIRONMENT_HELM_SUBDIRECTORY/</code> or for all charts in <code>$env/helm/</code><ul>
-<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
+<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts</li>
 <li>Load <code>bitops.config.yml</code> and set environment</li>
 <li>Merge contents with <a href="../default-environment/">Default environment</a></li>
 <li>Use <code>$KUBE_CONFIG_PATH</code> if defined, if not use aws cli to build .kubeconfig</li>
@@ -594,12 +594,12 @@
 </ul>
 </li>
 <li>If a <code>cloudformation/</code> directory exists within the selected environment<ul>
-<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
+<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts</li>
 <li>Load <code>bitops.config.yml</code> and set environment</li>
 <li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
 <li>Run cfn template validation</li>
 <li>Create or delete cfn stack. Wait for completion</li>
-<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts - <a href="https://github.com/bitovi/bitops/issues/17">TODO</a></li>
+<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts</li>
 </ul>
 </li>
 </ol>

@@ -13,7 +13,7 @@
     
     
       
-        <title>Default Environment - Bitops</title>
+        <title>Default Environment - BitOps</title>
       
     
     
@@ -73,7 +73,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href=".." title="Bitops" class="md-header-nav__button md-logo" aria-label="Bitops">
+    <a href=".." title="BitOps" class="md-header-nav__button md-logo" aria-label="BitOps">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-2v2h-6v-3h2v-2h-2V6a2 2 0 00-2-2H4V2H2v8h2V8h6v3H8v2h2v5a2 2 0 002 2h8v2h2"/></svg>
@@ -86,7 +86,7 @@
       
         <div class="md-header-nav__ellipsis">
           <span class="md-header-nav__topic md-ellipsis">
-            Bitops
+            BitOps
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
@@ -158,13 +158,13 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Bitops" class="md-nav__button md-logo" aria-label="Bitops">
+    <a href=".." title="BitOps" class="md-nav__button md-logo" aria-label="BitOps">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-2v2h-6v-3h2v-2h-2V6a2 2 0 00-2-2H4V2H2v8h2V8h6v3H8v2h2v5a2 2 0 002 2h8v2h2"/></svg>
 
     </a>
-    Bitops
+    BitOps
   </label>
   
     <div class="md-nav__source">
@@ -775,7 +775,7 @@ rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include
 <p>Files that only exist in the <code>default</code> environment will be copied over.</p>
 <p>Files from the <code>default</code> environment that share its name and path will be merged.</p>
 <h3 id="valuesyaml-helm">values.yaml (Helm)</h3>
-<p>helm has built in support for merging multiple <code>values.yaml</code> files. Bitops will look for files in the following locations and pass them in to helm with with the <code>-f</code> in the same order they are found</p>
+<p>helm has built in support for merging multiple <code>values.yaml</code> files. BitOps will look for files in the following locations and pass them in to helm with with the <code>-f</code> in the same order they are found</p>
 <ol>
 <li>Active environment's <code>values.yaml</code></li>
 <li>Default environment's <code>values.yaml</code></li>
