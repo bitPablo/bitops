@@ -694,7 +694,6 @@
         └── bitops.config.yml
         └── test.auto.tfvars
 </code></pre>
-
 <p>When <code>$ENVIRONMENT</code> is set to <code>production</code>, <code>default/</code> will be merged in to <code>production/</code> at runtime to produce a directory structure that looks like</p>
 <pre><code>├── default
 │   └── terraform
@@ -709,7 +708,6 @@
         └── bitops.config.yml
         └── test.auto.tfvars
 </code></pre>
-
 <p>Things get more complex when files exist in both the <code>default</code> and <code>active</code> environment share the same name. This is why we have file mergers.</p>
 <h2 id="file-mergers-todo">File Mergers <a href="https://github.com/bitovi/bitops/issues/3">TODO</a></h2>
 <p>Different files have different behvaviors based on the file extension + the deployment tool. Some files can be merged together, others can't. This behavior is defined below.</p>
@@ -726,7 +724,6 @@
         └── bitops.config.yml
         └── main.tf
 </code></pre>
-
 <p>After default merge</p>
 <pre><code>├── default
 │   └── terraform
@@ -737,13 +734,11 @@
         └── main.tf.test.tf
         └── main.tf # This comes from default/terraform/main.tf
 </code></pre>
-
 <p>This is accomplished with an <code>rsync</code> operation</p>
 <pre><code>DEFAULT_DIR=default
 ENV_DIR=test
 rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include=&quot;*.tf&quot; --exclude=&quot;*&quot;  $DEFAULT_DIR/ $ENV_DIR/
 </code></pre>
-
 <h3 id="sh-handling">.sh Handling</h3>
 <p>Files that only exist in the <code>default</code> environment will be copied over.</p>
 <p><code>.sh</code> files from the <code>default</code> environment that share its name and path with a file in the active environment will not be copied over.</p>
@@ -758,7 +753,6 @@ rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include
         └── bitops.config.yml
         └── main.tf
 </code></pre>
-
 <p>After default merge</p>
 <pre><code>├── default
 │   └── terraform
@@ -770,7 +764,6 @@ rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include
         │   └── default-after-script.sh # Copied from default/terraform/bitops.after-deploy.d/default-after-script.sh
         └── main.tf
 </code></pre>
-
 <h3 id="general-yamlyml">General .yaml/.yml</h3>
 <p>Files that only exist in the <code>default</code> environment will be copied over.</p>
 <p>Files from the <code>default</code> environment that share its name and path will be merged.</p>
@@ -802,7 +795,6 @@ rsync -ab --suffix &quot;.${ENV_DIR}.tf&quot; --include=&quot;*/&quot; --include
             ├── values-versions.yaml
             └── values.yaml
 </code></pre>
-
 <p>Will produce the following <code>helm install</code> command</p>
 <pre><code>helm install my-first-chart/
 helm install \

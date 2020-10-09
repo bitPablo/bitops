@@ -639,7 +639,6 @@
 -v $(pwd):/opt/bitops_deployment \
 bitovi/bitops:latest
 </code></pre>
-
 <h3 id="aws-config">AWS Config</h3>
 <pre><code>docker run \
 -e ENVIRONMENT=&quot;test-serviceA&quot; \
@@ -649,7 +648,6 @@ bitovi/bitops:latest
 -v $(pwd):/opt/bitops_deployment \
 bitovi/bitops:latest
 </code></pre>
-
 <h3 id="passing-in-kubeconfig">Passing in kubeconfig</h3>
 <pre><code>docker run \
 -e ENVIRONMENT=&quot;test-serviceA&quot; \
@@ -660,7 +658,6 @@ bitovi/bitops:latest
 -v $(pwd):/opt/bitops_deployment \
 bitovi/bitops:latest
 </code></pre>
-
 <h3 id="fetch-kubeconfig-from-eks">Fetch kubeconfig from eks</h3>
 <p>If you has a cluster arn of <code>arn:aws:eks:us-east-1:111122223333:cluster/my-cluster</code>, you would use the following configuration</p>
 <pre><code>docker run \
@@ -672,7 +669,6 @@ bitovi/bitops:latest
 -v $(pwd):/opt/bitops_deployment \
 bitovi/bitops:latest
 </code></pre>
-
 <h3 id="force-skip-over-ansible">Force skip over ansible</h3>
 <p>If there is a <code>test-serviceA/ansible/</code> directory, ansible execution can be skipped with <code>SKIP_DEPLOY_ANSIBLE</code></p>
 <pre><code>docker run \
@@ -684,7 +680,6 @@ bitovi/bitops:latest
 -v $(pwd):/opt/bitops_deployment \
 bitovi/bitops:latest
 </code></pre>
-
 <h3 id="force-call-terraform-destroy">Force call terraform destroy</h3>
 <pre><code>docker run \
 -e ENVIRONMENT=&quot;test-serviceA&quot; \

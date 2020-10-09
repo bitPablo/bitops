@@ -472,7 +472,6 @@
 -v $(pwd):/opt/bitops_deployment \
 bitovi/bitops:latest
 </code></pre>
-
 <p>In the logs you will see:</p>
 <p>Creation of <code>hosts.yaml</code></p>
 <pre><code>Terraform will perform the following actions:
@@ -499,7 +498,6 @@ bitovi/bitops:latest
 
 Plan: 2 to add, 0 to change, 0 to destroy.
 </code></pre>
-
 <p>A terraform post hook showing the contents of <code>hosts.yaml</code></p>
 <pre><code>+ cat hosts.yaml
 my-servers:
@@ -508,7 +506,6 @@ my-servers:
   vars:
     ansible_connection: local
 </code></pre>
-
 <p>The ansible playbook running using <code>hosts.yaml</code> as its input</p>
 <pre><code>ok: [localhost]
 

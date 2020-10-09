@@ -616,7 +616,6 @@
         ├── bitops.before-deploy.d
         └── bitops.config.yml
 </code></pre>
-
 <h4 id="environment-directories">Environment Directories</h4>
 <p>These directories live at the root of an operations repository and are used to separate applications and environments. Depending on your usecase, you may have an environment for <code>production</code>, <code>test</code> and <code>dev</code> or these traditional environments may be further separated into individual services. This pattern is preferential to having a branch for each environment as this allows the state of all your infrastructure to be managed from one location without merging potentially breaking an environment.</p>
 <p>When running bitops, you provide the environment variable <code>ENVIRONMENT</code>. This tells bitops what environment to work in for that run. A full CI/CD pipeline may call bitops multiple times if it requires one environment to run as a pre-requisite for another.</p>
@@ -630,7 +629,6 @@
 <pre><code>chmod +x bitops.before-deploy.d/*
 chmod +x bitops.after-deploy.d/*
 </code></pre>
-
 <h4 id="bitopsconfigyml">bitops.config.yml</h4>
 <p>Each tool is traditionally controlled with a set of cli arguements. Instead of defining these cli arguments within your pipeline configuration, these arguements can instead be defined using environment variables or within a <code>bitops.config.yml</code> file. While the core schema for this file is common betwen tools, the specific properties and environment variable equivilants vary from tool to tool. See <a href="../configuration-base/">BitOps Configuration</a> for details.</p>
                 
