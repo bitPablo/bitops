@@ -8,8 +8,9 @@
       
       
       
+      
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -17,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.19190aaf.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.358818c7.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.24b84193.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.f0267088.min.css">
         
           
           
@@ -435,6 +436,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#uninstall-charts" class="md-nav__link">
+    uninstall-charts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#kubeconfig" class="md-nav__link">
     kubeconfig
   </a>
@@ -807,6 +815,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#uninstall-charts" class="md-nav__link">
+    uninstall-charts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#kubeconfig" class="md-nav__link">
     kubeconfig
   </a>
@@ -947,6 +962,7 @@
   options:
     skip-deploy: false
     release-name: bitops-release
+    uninstall-charts: &quot;chart1,chart2&quot;
     kubeconfig:
       path: ./path/to/kubeconfig
       fetch:
@@ -1030,6 +1046,14 @@
 <li><strong>default:</strong> <code>""</code></li>
 </ul>
 <p>sets helm release name</p>
+<hr />
+<h3 id="uninstall-charts">uninstall-charts</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>uninstall-charts</code></li>
+<li><strong>Environment Variable:</strong> <code>HELM_UNINSTALL_CHARTS</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>Comma separated string. If any of the charts to be deployed match one of the chart names listed here, it will be uninstalled with <code>helm uninstall $HELM_RELEASE_NAME</code> instead of deployed/upgraded.</p>
 <hr />
 <h3 id="kubeconfig">kubeconfig</h3>
 <ul>
@@ -1189,7 +1213,7 @@
     </div>
     
       <script src="../../assets/javascripts/vendor.7e0ee788.min.js"></script>
-      <script src="../../assets/javascripts/bundle.c1ccee15.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
