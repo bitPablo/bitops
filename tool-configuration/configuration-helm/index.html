@@ -436,8 +436,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#uninstall-charts" class="md-nav__link">
-    uninstall-charts
+  <a href="#uninstall" class="md-nav__link">
+    uninstall
   </a>
   
 </li>
@@ -545,6 +545,13 @@
           <li class="md-nav__item">
   <a href="#skip_deploy_helm" class="md-nav__link">
     SKIP_DEPLOY_HELM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm_uninstall_charts" class="md-nav__link">
+    HELM_UNINSTALL_CHARTS
   </a>
   
 </li>
@@ -815,8 +822,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#uninstall-charts" class="md-nav__link">
-    uninstall-charts
+  <a href="#uninstall" class="md-nav__link">
+    uninstall
   </a>
   
 </li>
@@ -924,6 +931,13 @@
           <li class="md-nav__item">
   <a href="#skip_deploy_helm" class="md-nav__link">
     SKIP_DEPLOY_HELM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm_uninstall_charts" class="md-nav__link">
+    HELM_UNINSTALL_CHARTS
   </a>
   
 </li>
@@ -1047,13 +1061,13 @@
 </ul>
 <p>sets helm release name</p>
 <hr />
-<h3 id="uninstall-charts">uninstall-charts</h3>
+<h3 id="uninstall">uninstall</h3>
 <ul>
-<li><strong>BitOps Property:</strong> <code>uninstall-charts</code></li>
-<li><strong>Environment Variable:</strong> <code>HELM_UNINSTALL_CHARTS</code></li>
+<li><strong>BitOps Property:</strong> <code>uninstall</code></li>
+<li><strong>Environment Variable:</strong> <code>HELM_UNINSTALL</code></li>
 <li><strong>default:</strong> <code>""</code></li>
 </ul>
-<p>Comma separated string. If any of the charts to be deployed match one of the chart names listed here, it will be uninstalled with <code>helm uninstall $HELM_RELEASE_NAME</code> instead of deployed/upgraded.</p>
+<p>If true, this chart will be uninstalled instead of deployed/upgraded. If the environment variable <code>HELM_UNINSTALL</code> is passed in to the container, all BitOps managed charts for a given environment will be uninstalled.</p>
 <hr />
 <h3 id="kubeconfig">kubeconfig</h3>
 <ul>
@@ -1115,6 +1129,9 @@
 <hr />
 <h3 id="skip_deploy_helm">SKIP_DEPLOY_HELM</h3>
 <p>Will skill all helm executions. This superseeds all other configuration</p>
+<hr />
+<h3 id="helm_uninstall_charts">HELM_UNINSTALL_CHARTS</h3>
+<p>Comma separated string. If any of the charts to be deployed match one of the chart names listed here, it will be uninstalled with <code>helm uninstall $HELM_RELEASE_NAME</code> instead of deployed/upgraded.</p>
                 
               
               
