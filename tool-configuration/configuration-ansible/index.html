@@ -527,6 +527,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#extra-vars" class="md-nav__link">
+    extra-vars
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -771,6 +778,7 @@
     forks: 20
     inventory: beta
     tags: run-this-tag
+    extra-vars: &quot;@extra-vars.json&quot;
   options:
     dryrun: false
 </code></pre></div>
@@ -817,6 +825,13 @@
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_TAGS</code></li>
 </ul>
 <p>only run plays and tasks tagged with these values</p>
+<hr />
+<h3 id="extra-vars">extra-vars</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>extra-vars</code></li>
+<li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_EXTRA_VARS</code></li>
+</ul>
+<p>add additional ansible playbook parameters directly or load via JSON/YAML file</p>
 <h2 id="options-configuration">Options Configuration</h2>
 <hr />
 <h3 id="dryrun">dryrun</h3>
