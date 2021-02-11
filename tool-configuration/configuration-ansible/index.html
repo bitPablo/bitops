@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/logo/Bitops(RGB)_L2_Icon_4C.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.7">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
     
     
       
@@ -483,6 +483,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#extra-vars" class="md-nav__link">
+    extra-vars
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#flush-cache" class="md-nav__link">
     flush-cache
   </a>
@@ -492,13 +499,6 @@
           <li class="md-nav__item">
   <a href="#force-handlers" class="md-nav__link">
     force-handlers
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#skip-tags" class="md-nav__link">
-    skip-tags
   </a>
   
 </li>
@@ -518,15 +518,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#tags" class="md-nav__link">
-    tags
+  <a href="#skip-tags" class="md-nav__link">
+    skip-tags
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#extra-vars" class="md-nav__link">
-    extra-vars
+  <a href="#tags" class="md-nav__link">
+    tags
   </a>
   
 </li>
@@ -563,6 +563,13 @@
   
     <nav class="md-nav" aria-label="Additional Environment Variable Configuration">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extra_env" class="md-nav__link">
+    EXTRA_ENV
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#skip_deploy_ansible" class="md-nav__link">
@@ -782,6 +789,13 @@
 </code></pre></div>
 <h2 id="cli-configuration">CLI Configuration</h2>
 <hr />
+<h3 id="extra-vars">extra-vars</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>extra-vars</code></li>
+<li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_EXTRA_VARS</code></li>
+</ul>
+<p>add additional ansible playbook parameters directly or load via JSON/YAML file</p>
+<hr />
 <h3 id="flush-cache">flush-cache</h3>
 <ul>
 <li><strong>BitOps Property:</strong> <code>flush-cache</code></li>
@@ -795,13 +809,6 @@
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_FORCE_HANDLERS</code></li>
 </ul>
 <p>clear the fact cache for every host in inventory</p>
-<hr />
-<h3 id="skip-tags">skip-tags</h3>
-<ul>
-<li><strong>BitOps Property:</strong> <code>skip-tags</code></li>
-<li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_SKIP_TAGS</code></li>
-</ul>
-<p>only run plays and tasks whose tags do not match these values</p>
 <hr />
 <h3 id="forks">forks</h3>
 <ul>
@@ -817,19 +824,19 @@
 </ul>
 <p>specify inventory host path or comma separated host list.</p>
 <hr />
+<h3 id="skip-tags">skip-tags</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>skip-tags</code></li>
+<li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_SKIP_TAGS</code></li>
+</ul>
+<p>only run plays and tasks whose tags do not match these values</p>
+<hr />
 <h3 id="tags">tags</h3>
 <ul>
 <li><strong>BitOps Property:</strong> <code>tags</code></li>
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_TAGS</code></li>
 </ul>
 <p>only run plays and tasks tagged with these values</p>
-<hr />
-<h3 id="extra-vars">extra-vars</h3>
-<ul>
-<li><strong>BitOps Property:</strong> <code>extra-vars</code></li>
-<li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_EXTRA_VARS</code></li>
-</ul>
-<p>add additional ansible playbook parameters directly or load via JSON/YAML file</p>
 <h2 id="options-configuration">Options Configuration</h2>
 <hr />
 <h3 id="dryrun">dryrun</h3>
@@ -841,6 +848,9 @@
 <p>Will run <code>--list-tasks</code> but won't actually execute playbook(s)</p>
 <h2 id="additional-environment-variable-configuration">Additional Environment Variable Configuration</h2>
 <p>Although not captured in <code>bitops.config.yml</code>, the following environment variables can be set to further customize behaviour</p>
+<hr />
+<h3 id="extra_env">EXTRA_ENV</h3>
+<p>Before Ansible playbook execution, BitOps will look for an <code>extra_env</code> file containing additional environment parameters (<code>FOO=val1</code>) in the Ansible plugin directory. If found, the values will be exported to the BitOps environment.</p>
 <hr />
 <h3 id="skip_deploy_ansible">SKIP_DEPLOY_ANSIBLE</h3>
 <p>Will skill all ansible executions. This superseeds all other configuration</p>
@@ -941,8 +951,8 @@
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.53cc9318.min.js"></script>
-      <script src="../../assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
