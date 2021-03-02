@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../../assets/images/logo/Bitops(RGB)_L2_Icon_4C.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
     
     
       
@@ -346,7 +346,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
   
   
@@ -379,7 +378,6 @@
           Cloud Configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -421,7 +419,6 @@
           Tool Configuration
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
           
             
   
@@ -528,8 +525,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#skip-tags_1" class="md-nav__link">
+    skip-tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#tags" class="md-nav__link">
     tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vault-id" class="md-nav__link">
+    vault-id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vault-password-file" class="md-nav__link">
+    vault-password-file
   </a>
   
 </li>
@@ -550,6 +568,13 @@
           <li class="md-nav__item">
   <a href="#dryrun" class="md-nav__link">
     dryrun
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verbose" class="md-nav__link">
+    verbose
   </a>
   
 </li>
@@ -696,7 +721,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
   
   
@@ -780,15 +804,18 @@
 <h2 id="example-bitopsconfigyml">Example bitops.config.yml</h2>
 <div class="highlight"><pre><span></span><code>ansible:
   cli:
+    extra-vars: &quot;@extra-vars.json&quot;
     flush-cache: true
     force-handlers: true
-    skip-tags: ignore-this-tag
     forks: 20
     inventory: beta
+    skip-tags: ignore-this-tag
     tags: run-this-tag
-    extra-vars: &quot;@extra-vars.json&quot;
+    vault-id: [dev@dev-passwordfile, prod@prod-passwordfile]
+    vault-password-file: $TEMPDIR/secrets/password_file
   options:
     dryrun: false
+    verbosity: 4
 </code></pre></div>
 <h2 id="cli-configuration">CLI Configuration</h2>
 <hr />
@@ -797,37 +824,44 @@
 <li><strong>BitOps Property:</strong> <code>extra-vars</code></li>
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_EXTRA_VARS</code></li>
 </ul>
-<p>add additional ansible playbook parameters directly or load via JSON/YAML file</p>
+<p>Add additional ansible playbook parameters directly or load via JSON/YAML file.</p>
 <hr />
 <h3 id="flush-cache">flush-cache</h3>
 <ul>
 <li><strong>BitOps Property:</strong> <code>flush-cache</code></li>
 <li><strong>Environment Variable:</strong> <code>BITOS_ANSIBLE_FLUSH_CACHE</code></li>
 </ul>
-<p>clear the fact cache for every host in inventory</p>
+<p>Clear the fact cache for every host in inventory.</p>
 <hr />
 <h3 id="force-handlers">force-handlers</h3>
 <ul>
 <li><strong>BitOps Property:</strong> <code>force-handlers</code></li>
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_FORCE_HANDLERS</code></li>
 </ul>
-<p>clear the fact cache for every host in inventory</p>
+<p>Clear the fact cache for every host in inventory.</p>
 <hr />
 <h3 id="forks">forks</h3>
 <ul>
 <li><strong>BitOps Property:</strong> <code>forks</code></li>
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_FORKS</code></li>
 </ul>
-<p>specify number of parallel processes to use (default=5)</p>
+<p>Specify number of parallel processes to use (default=5).</p>
 <hr />
 <h3 id="inventory">inventory</h3>
 <ul>
 <li><strong>BitOps Property:</strong> <code>inventory</code></li>
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_INVENTORY</code></li>
 </ul>
-<p>specify inventory host path or comma separated host list.</p>
+<p>Specify inventory host path or comma separated host list.</p>
 <hr />
 <h3 id="skip-tags">skip-tags</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>skip-tags</code></li>
+<li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_SKIP_TAGS</code></li>
+</ul>
+<p>Only run plays and tasks whose tags do not match these values.</p>
+<hr />
+<h3 id="skip-tags_1">skip-tags</h3>
 <ul>
 <li><strong>BitOps Property:</strong> <code>skip-tags</code></li>
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_SKIP_TAGS</code></li>
@@ -839,7 +873,22 @@
 <li><strong>BitOps Property:</strong> <code>tags</code></li>
 <li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_TAGS</code></li>
 </ul>
-<p>only run plays and tasks tagged with these values</p>
+<p>Only run plays and tasks tagged with these values.</p>
+<hr />
+<h3 id="vault-id">vault-id</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>vault-id</code></li>
+<li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_VAULT_ID</code></li>
+<li><strong>type:</strong> <code>list</code></li>
+</ul>
+<p>Specify Ansible vault-id <code>[dev@dev-passwordfile]</code> or multiple <code>[dev@dev-passwordfile, prod@prod-passwordfile]</code> or password client script <code>[dev@my-vault-password-client.py]</code>. Cannot be used with <code>@prompt</code> for equivalent <code>--ask-vault-pass</code> functionality</p>
+<hr />
+<h3 id="vault-password-file">vault-password-file</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>vault-password-file</code></li>
+<li><strong>Environment Variable:</strong> <code>BITOPS_ANSIBLE_VAULT_PASSWORD_FILE</code></li>
+</ul>
+<p>Specify Ansible vault password file for decryption.</p>
 <h2 id="options-configuration">Options Configuration</h2>
 <hr />
 <h3 id="dryrun">dryrun</h3>
@@ -849,14 +898,22 @@
 <li><strong>default:</strong> <code>false</code></li>
 </ul>
 <p>Will run <code>--list-tasks</code> but won't actually execute playbook(s)</p>
+<hr />
+<h3 id="verbose">verbose</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>verbosity</code></li>
+<li><strong>Environment Variable:</strong> <code>ANSIBLE_VERBOSITY</code></li>
+<li><strong>default:</strong> <code>not set</code></li>
+</ul>
+<p>Acceptable values <code>0|1|2|3|4</code>. Equivalent to adding <code>-verbose</code> or repeating <code>-v</code> flags. Will override a pre-existing <code>ANSIBLE_VERBOSITY</code> environmental variable or <code>[default]</code> <code>verbosity=</code> setting in ansible.cfg.</p>
 <h2 id="additional-environment-variable-configuration">Additional Environment Variable Configuration</h2>
-<p>Although not captured in <code>bitops.config.yml</code>, the following environment variables can be set to further customize behaviour</p>
+<p>Although not captured in <code>bitops.config.yml</code>, the following environment variables can be set to further customize behaviour.</p>
 <hr />
 <h3 id="extra_env">EXTRA_ENV</h3>
 <p>Before Ansible playbook execution, BitOps will look for an <code>extra_env</code> file containing additional environment parameters (<code>FOO=val1</code>) in the Ansible plugin directory. If found, the values will be exported to the BitOps environment.</p>
 <hr />
 <h3 id="skip_deploy_ansible">SKIP_DEPLOY_ANSIBLE</h3>
-<p>Will skill all ansible executions. This superseeds all other configuration</p>
+<p>Will skill all ansible executions. This superseeds all other configuration.</p>
                 
               
               
@@ -954,10 +1011,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.f5903571.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.4e3fea51.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ca5457b8.min.js"></script>
       
     
   </body>
