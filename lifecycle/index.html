@@ -10,15 +10,15 @@
       
       
       <link rel="shortcut icon" href="../assets/images/logo/Bitops(RGB)_L2_Icon_4C.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
     
     
       
-        <title>Lifecycle - BitOps</title>
+        <title>Lifecycle - BitOps Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1655a90d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.77f3fd56.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
@@ -77,7 +77,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="BitOps" class="md-header__button md-logo" aria-label="BitOps">
+    <a href=".." title="BitOps Documentation" class="md-header__button md-logo" aria-label="BitOps Documentation">
       
   <img src="../assets/images/logo/Bitops(RGB)_L2_Icon_4C.png" alt="logo">
 
@@ -89,7 +89,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            BitOps
+            BitOps Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -267,12 +267,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="BitOps" class="md-nav__button md-logo" aria-label="BitOps">
+    <a href=".." title="BitOps Documentation" class="md-nav__button md-logo" aria-label="BitOps Documentation">
       
   <img src="../assets/images/logo/Bitops(RGB)_L2_Icon_4C.png" alt="logo">
 
     </a>
-    BitOps
+    BitOps Documentation
   </label>
   
     <div class="md-nav__source">
@@ -538,6 +538,54 @@
     Detailed Execution Flow
   </a>
   
+    <nav class="md-nav" aria-label="Detailed Execution Flow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-copy-contents-of-bitops_deployment-to-tempdir" class="md-nav__link">
+    1. Copy contents of bitops_deployment to tempdir
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-setup-cloud-provider" class="md-nav__link">
+    2. Setup Cloud Provider
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-check-for-terraform-schema" class="md-nav__link">
+    3. Check for Terraform Schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-check-for-ansible-schema" class="md-nav__link">
+    4. Check for Ansible Schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-check-for-helm-schema" class="md-nav__link">
+    5. Check for Helm Schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-check-for-cloudformation-schema" class="md-nav__link">
+    6. Check for Cloudformation Schema
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -672,56 +720,51 @@
 <p>This is a useful way to extend the functionality of bitops. A popular usecase we've seen is loading secrets or dynamically editing <code>bitops.config.yml</code></p>
 <h2 id="detailed-execution-flow">Detailed Execution Flow</h2>
 <p><img alt="lifecycle diagram" src="../assets/images/lifecycle.png" /></p>
-<p>A single run of BitOps will</p>
-<ol>
-<li>Copy the contents of <code>/opt/bitops_deployment</code> to a temporary working directory</li>
-<li>Attempt to setup a cloud provider</li>
-<li>If a <code>terraform/</code> directory exists within the selected environment<ul>
-<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts </li>
-<li>Load <code>bitops.config.yml</code> and set environment</li>
-<li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
-<li>Select terraform version</li>
-<li>Run <code>terraform init</code></li>
-<li>Select <code>terraform workspace</code></li>
-<li>Run <code>terraform plan</code></li>
-<li>Run <code>terraform apply</code> or <code>terraform destroy</code></li>
-<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts</li>
-</ul>
-</li>
-<li>If a <code>ansible/</code> directory exists within the selected environment<ul>
-<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts</li>
-<li>Load <code>bitops.config.yml</code> and set environment</li>
-<li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
-<li>Run <code>ansible-playbook $playbook</code> for each <code>*.yaml</code> or <code>*.yml</code> file in <code>$env/ansible/</code> </li>
-<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts</li>
-</ul>
-</li>
-<li>If a <code>helm/</code> directory exists within the selected environment<ul>
-<li>Run the following for <code>$env/helm/$ENVIRONMENT_HELM_SUBDIRECTORY/</code> or for all charts in <code>$env/helm/</code><ul>
-<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts</li>
-<li>Load <code>bitops.config.yml</code> and set environment</li>
-<li>Merge contents with <a href="../default-environment/">Default environment</a></li>
-<li>Use <code>$KUBE_CONFIG_PATH</code> if defined, if not use aws cli to build .kubeconfig</li>
-<li>Gather all values files - TODO document</li>
-<li>Run <code>helm dep up</code></li>
-<li>Run <code>helm upgrade</code> or <code>helm install</code></li>
-<li>Run <code>helm rollback</code> on failure</li>
-<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts</li>
-<li>TODO <code>helm_install_external_charts</code> and <code>helm_install_charts_from_s3</code> never run!</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>If a <code>cloudformation/</code> directory exists within the selected environment<ul>
-<li>Run any <code>bitops.before-deploy.d/*.sh</code> scripts</li>
-<li>Load <code>bitops.config.yml</code> and set environment</li>
-<li>Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a></li>
-<li>Run cfn template validation</li>
-<li>Create or delete cfn stack. Wait for completion</li>
-<li>Run any <code>bitops.after-deploy.d/*.sh</code> scripts</li>
-</ul>
-</li>
-</ol>
+<p>A single run of BitOps will:</p>
+<h3 id="1-copy-contents-of-bitops_deployment-to-tempdir">1. Copy contents of bitops_deployment to tempdir</h3>
+<p>Copys the contents of <code>/opt/bitops_deployment</code> to a temporary working directory.</p>
+<h3 id="2-setup-cloud-provider">2. Setup Cloud Provider</h3>
+<p>Attempts to setup a cloud provider (AWS) using the credentials passed in at container execution time.</p>
+<h3 id="3-check-for-terraform-schema">3. Check for Terraform Schema</h3>
+<p>If a <code>terraform/</code> directory exists within the selected environment:
+* Run any <code>bitops.before-deploy.d/*.sh</code> scripts 
+* Load <code>bitops.config.yml</code> and set environment
+* Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a>
+* Select terraform version
+* Run <code>terraform init</code>
+* Select <code>terraform workspace</code>
+* Run <code>terraform plan</code>
+* Run <code>terraform apply</code> or <code>terraform destroy</code>
+* Run any <code>bitops.after-deploy.d/*.sh</code> scripts</p>
+<h3 id="4-check-for-ansible-schema">4. Check for Ansible Schema</h3>
+<p>If an <code>ansible/</code> directory exists within the selected environment:
+* Run any <code>bitops.before-deploy.d/*.sh</code> scripts
+* Load <code>ansible/extra_env</code> environment config file if exists
+* Load <code>bitops.config.yml</code> and set environment
+* Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a>
+* Run <code>ansible-playbook $playbook</code> for each <code>*.yaml</code> or <code>*.yml</code> file in <code>$env/ansible/</code> 
+* Run any <code>bitops.after-deploy.d/*.sh</code> scripts</p>
+<h3 id="5-check-for-helm-schema">5. Check for Helm Schema</h3>
+<p>If a <code>helm/</code> directory exists within the selected environment:
+* Run the following for <code>$env/helm/$ENVIRONMENT_HELM_SUBDIRECTORY/</code> or for all charts in <code>$env/helm/</code>
+* Run any <code>bitops.before-deploy.d/*.sh</code> scripts
+* Load <code>bitops.config.yml</code> and set environment
+* Merge contents with <a href="../default-environment/">Default environment</a>
+* Use <code>$KUBE_CONFIG_PATH</code> if defined, if not use aws cli to build .kubeconfig
+* Gather all values files - TODO document
+* Run <code>helm dep up</code>
+* Run <code>helm upgrade</code> or <code>helm install</code>
+* Run <code>helm rollback</code> on failure
+* Run any <code>bitops.after-deploy.d/*.sh</code> scripts
+* TODO <code>helm_install_external_charts</code> and <code>helm_install_charts_from_s3</code> never run!</p>
+<h3 id="6-check-for-cloudformation-schema">6. Check for Cloudformation Schema</h3>
+<p>If a <code>cloudformation/</code> directory exists within the selected environment:
+* Run any <code>bitops.before-deploy.d/*.sh</code> scripts
+* Load <code>bitops.config.yml</code> and set environment
+* Merge contents with <a href="../default-environment/">Default environment</a> - <a href="https://github.com/bitovi/bitops/issues/18">TODO</a>
+* Run cfn template validation
+* Create or delete cfn stack. Wait for completion
+* Run any <code>bitops.after-deploy.d/*.sh</code> scripts</p>
                 
               
               
@@ -778,6 +821,7 @@
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
         </a>
+        
       </div>
       
   <div class="md-footer-social">
@@ -822,7 +866,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.ca5457b8.min.js"></script>
+      <script src="../assets/javascripts/bundle.5cf3e710.min.js"></script>
       
     
   </body>
