@@ -606,9 +606,84 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    Testing
+  <a href="#understanding-bitops" class="md-nav__link">
+    Understanding Bitops
   </a>
+  
+    <nav class="md-nav" aria-label="Understanding Bitops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-bitops-environmental-variables" class="md-nav__link">
+    Standard Bitops Environmental Variables:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#standard-bitops-packages-and-libraries" class="md-nav__link">
+    Standard BitOps Packages and Libraries:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitops-code-structure" class="md-nav__link">
+    BitOps Code Structure:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-of-note" class="md-nav__link">
+    Files of Note:
+  </a>
+  
+    <nav class="md-nav" aria-label="Files of Note:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bitopsscriptssetupinstall_toolssh" class="md-nav__link">
+    bitops/scripts/setup/install_tools.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitopsscriptsdeploysh" class="md-nav__link">
+    bitops/scripts/deploy.sh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitopsscriptsdeploy" class="md-nav__link">
+    bitops/scripts/deploy/
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitopsscriptsbitops-config" class="md-nav__link">
+    bitops/scripts/bitops-config/
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-new-plugin" class="md-nav__link">
+    Creating a New Plugin
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -616,6 +691,26 @@
   <a href="#creating-a-pr" class="md-nav__link">
     Creating a PR
   </a>
+  
+    <nav class="md-nav" aria-label="Creating a PR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bash-styleguide" class="md-nav__link">
+    Bash Styleguide
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml-styleguide" class="md-nav__link">
+    YAML Styleguide
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -683,11 +778,162 @@
                 
                 
                 <h1 id="development-guide">Development Guide</h1>
-<p>TODO</p>
+<p>We are excited for any contributions from the community, we welcome any feedback whether its:</p>
+<ul>
+<li>Submitting a bug report</li>
+<li>An idea for feature development</li>
+<li>Expanding functionality of an existing feature</li>
+<li>Submitting an example guide or blog using Bitops</li>
+<li>Security or other concerns</li>
+</ul>
+<p>When contributing to BitOps, please consider some of the following basic guidelines before submitting.</p>
 <h2 id="requirements">Requirements</h2>
+<p>To submit changes we require that all contributions first have a GitHub issue created where submissions can be discussed and visible to all Contributors and Maintainers.</p>
+<p>By contributing, you agree to the <a href="DCO.html">Developer Certificate of Origin (DCO)</a> which states that the code being submitted is owned wholly by you.</p>
+<p>Contributors and Maintainers are expected to treat other community members with courtesy and respect, be willing and able to accept constructive criticism, and strive for understanding of other's viewpoints in all community channels.</p>
 <h2 id="building-bitops">Building BitOps</h2>
-<h2 id="testing">Testing</h2>
+<p>Before continuing, if you haven't used GitHub before you may want to review GitHub's <a href="https://help.github.com/articles/fork-a-repo/">forking guide</a> and <a href="https://help.github.com/articles/cloning-a-repository/">cloning guide</a> which further explains how to clone a repo for any major operating system.</p>
+<p>To develop BitOps, first fork BitOps to create a copy of the BitOps GitHub repo under your own account:</p>
+<p><img alt="github fork highlight" src="../assets/images/fork-highlight.png" /></p>
+<p>Then you need to clone your personal copy of the repository you just forked. Clicking the green <code>Code</code> button on your repo will give you a copiable URL to use:</p>
+<div class="highlight"><pre><span></span><code>git clone git@github.com:&lt;your github username&gt;/&lt;repository-name&gt;.git
+cd bitops
+git checkout -b your-branch-name
+</code></pre></div>
+<p>Replace <code>your-branch-name</code> with the name of the feature you're building, e.g. <code>git checkout -b some-ansible-feature</code> to create a <code>some-ansible-feature</code> branch.</p>
+<p>As you're forking the code to work locally, you may not need or wish to create a separate branch, however BitOps will not allow commits directly to master and it's just a good habit to get into!</p>
+<p>Then after modifying the code or adding your changes, re-build the BitOps docker image:</p>
+<div class="highlight"><pre><span></span><code>docker build bitops --tag bitovi/bitops:ansible-feature
+</code></pre></div>
+<p>You can now execute your modified version of BitOps locally to test your changes.</p>
+<p>For example, to test your new <code>ansible-feature</code> version of BitOps with an Operations Repo environment named <code>ansible-operations-repo</code> containing an Ansible playbook and other data:</p>
+<div class="highlight"><pre><span></span><code>export AWS_ACCESS_KEY_ID=ABCDEF012345
+export AWS_SECRET_ACCESS_KEY=ZYXWV09876
+export AWS_DEFAULT_REGION=us-east-1
+export MY_VAR1=value1
+docker run \
+-e ENVIRONMENT=&quot;ansible-operations-repo&quot; \
+-e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+-e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+-e AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION \
+-e MY_VAR1=$MY_VAR1 \
+-v $(pwd):/opt/bitops_deployment \
+bitovi/bitops:ansible-feature
+</code></pre></div>
+<h2 id="understanding-bitops">Understanding Bitops</h2>
+<p>BitOps has several packages and environment variables readily available which make working with BitOps easy:</p>
+<h3 id="standard-bitops-environmental-variables">Standard Bitops Environmental Variables:</h3>
+<p>A <code>*</code> denotes a required variable.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Variable</th>
+<th align="left">Value</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>$BITOPS_DIR</code></td>
+<td align="left"><code>/opt/bitops</code></td>
+<td align="left">Within the container the default working directory for BitOps</td>
+</tr>
+<tr>
+<td align="left"><code>$ENVIRONMENT</code>*</td>
+<td align="left"><code>YOUR_OPS_REPO_ENVIRONMENT</code></td>
+<td align="left">BitOps requires at least one environment folder to be specified at container execution.</td>
+</tr>
+<tr>
+<td align="left"><code>$ENVROOT</code></td>
+<td align="left"><code>$TEMPDIR/$ENVIRONMENT</code></td>
+<td align="left">e.g <code>/tmp/tmp.RANDOM/YOUR_OPS_REPO_ENVIRONMENT</code></td>
+</tr>
+<tr>
+<td align="left"><code>$TEMPDIR</code></td>
+<td align="left"><code>/tmp/tmp.RANDOM</code></td>
+<td align="left">This is the randomly generated working dir for BitOps.</td>
+</tr>
+<tr>
+<td align="left"><code>$ROOT_DIR</code></td>
+<td align="left"><code>/opt/bitops_deployment</code></td>
+<td align="left">This working dir for BitOps (moved to <code>$TEMPDIR</code> during execution)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>For more information about the core variables, see
+<a href="https://github.com/bitovi/bitops/blob/master/scripts/deploy.sh">scripts/deploy.sh</a></p>
+</blockquote>
+<h3 id="standard-bitops-packages-and-libraries">Standard BitOps Packages and Libraries:</h3>
+<p>System Packages natively available in a running BitOps container:</p>
+<ul>
+<li>ansible</li>
+<li>aws / awscli</li>
+<li>binutils</li>
+<li>curl</li>
+<li>git</li>
+<li>glibc</li>
+<li>ig</li>
+<li>libsodium-dev</li>
+<li>unzip</li>
+<li>wget</li>
+</ul>
+<blockquote>
+<p>For the most up-to-date list, see
+<a href="https://github.com/bitovi/bitops/blob/master/Dockerfile">Dockerfile</a></p>
+</blockquote>
+<p>Python packages natively available in BitOps:</p>
+<ul>
+<li>pip</li>
+<li>PyYAML</li>
+<li>setuptools</li>
+<li>shyaml</li>
+<li>wheel</li>
+</ul>
+<blockquote>
+<p>For the most up-to-date list, see
+- <a href="https://github.com/bitovi/bitops/blob/master/requirements.txt">requirements.txt</a></p>
+</blockquote>
+<h3 id="bitops-code-structure">BitOps Code Structure:</h3>
+<p>The BitOps repo is fairly straight forward in its current implementation. Most aspects of BitOps are all handled as different <code>plugins</code>, including the setup and deployment of BitOps itself. This means that both BitOps container setup scripts such as <code>/bitops/scripts/deploy</code> as well as tool scripts like <code>/bitops/scripts/ansible</code> share a naming scheme and folder structure.</p>
+<p>All scripts for a plugin should be contained within that plugin's named directory unless it requires an additional outside <code>deploy</code> script for configuration.</p>
+<h3 id="files-of-note">Files of Note:</h3>
+<h4 id="bitopsscriptssetupinstall_toolssh"><code>bitops/scripts/setup/install_tools.sh</code></h4>
+<p>This script downloads packages of required tools such as <code>aws-iam</code> to the BitOps container. If you are adding in a plugin that requries downloading a tools package to extract using <code>wget</code>, <code>install_tools.sh</code> will allow for that.</p>
+<h4 id="bitopsscriptsdeploysh"><code>bitops/scripts/deploy.sh</code></h4>
+<p>This script orchestrates the order in which BitOps tools are deployed and configured. If you are adding a plugin that will require a specific ordering (e.g <code>before ansible but after terraform</code>), <code>deploy.sh</code> is where you can add in your plugin's entrypoint into the BitOps lifecycle.</p>
+<h4 id="bitopsscriptsdeploy"><code>bitops/scripts/deploy/</code></h4>
+<p>This directory contains scripts which common to all plugins.</p>
+<h4 id="bitopsscriptsbitops-config"><code>bitops/scripts/bitops-config/</code></h4>
+<p>This directory contains base scripts that assist with parsing and converting the standard BitOps schema format. Check the included <code>README.md</code> within the bitops-config directory for examples.</p>
+<h3 id="creating-a-new-plugin">Creating a New Plugin</h3>
+<p>BitOps has additional <a href="https://github.com/bitovi/bitops/pull/55">functionality being developed</a> to read any plugin folder for BitOps schema, even if it isn't one of the specified tools. BitOps will look for any BitOps schema within the plugin's directory as well as <code>before</code> and <code>after</code> deploy scripts for each. </p>
 <h2 id="creating-a-pr">Creating a PR</h2>
+<p>Once you have finished testing your code, please ensure you have first created an issue related to the feature you are developing.</p>
+<p>After you've <code>git add</code>'d and <code>git commit</code>'d push your new branch to Github:</p>
+<div class="highlight"><pre><span></span><code>git push --set-upstream origin some-ansible-feature
+</code></pre></div>
+<p>Once your code has been submitted to Github, navigate to the <em>main BitOps Github</em> page, and click the “New Pull Request” button. You'll want the original BitOps repo you forked <em>from</em> not your personal/modified one.</p>
+<p>Select <code>Compare across forks</code> and then select your branch name e.g <code>some-ansible-feature</code> as the 'compare' branch to attempt to merge. You may be warned about conflicts when merging the code, Github will try to tell you what is incorrect.</p>
+<p>If you are having issues creating a Pull from your forked repo, GitHub has <a href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork">a more thorough guide</a> than what is presented here.</p>
+<p>If you're unable to solve the merge conflicts, don't worry you'll still be able to submit your PR, just make a note of the issues you were facing in the PR description and we will work with you to solve them.</p>
+<p>Give your PR a meaningful title and provide details about the change in the description, including a link to the issue(s) relating to your PR. All that's left is to click the 'Create pull request' button and wait for our eager review of your code!</p>
+<h3 id="bash-styleguide">Bash Styleguide</h3>
+<p>The BitOps container uses the Bourne shell during execution, please ensure all functions used in your submission exist for <code>sh</code>. Submissions that utilize alternate shells (<code>zsh</code>,<code>ksh</code>,<code>csh</code>, etc.) will not be accepted.</p>
+<p>BitOps comes packaged with <a href="https://pypi.org/project/shyaml/"><code>shyaml</code></a> which can be used to parse YAML config files from stdout.</p>
+<p>When contributing Bash code segments to BitOps please keep these concepts in mind:</p>
+<ul>
+<li>Add <code>echo</code> statements during plugin execution to give verbosity and debugging during execution</li>
+<li>Update any related documentation to the code or feature you are modifying</li>
+<li>Avoid multiple commands per line if possible. Replace <code>;</code> with whitespace and newline characters where appropriate.</li>
+<li>For scripts or other subroutines use <code>_</code> to connnect multiple word names, e.g <code>validate_env.sh</code></li>
+</ul>
+<h3 id="yaml-styleguide">YAML Styleguide</h3>
+<p>BitOps uses standard YAML formatting with only a few reccomendations regarding style:</p>
+<ul>
+<li>When adding additional YAML files, utilize the full <code>.yaml</code> file extension</li>
+<li>For multi-word variable names use <code>-</code> hyphen to connect them, e.g <code>cfn-stack-name</code></li>
+</ul>
                 
               
               
