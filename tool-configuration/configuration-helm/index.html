@@ -14,7 +14,7 @@
     
     
       
-        <title>Index - BitOps Documentation</title>
+        <title>Helm - BitOps Documentation</title>
       
     
     
@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#helm" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Helm
             
           </span>
         </div>
@@ -187,13 +192,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../configuration-base/" class="md-tabs__link">
+      <a href="../../configuration-base/" class="md-tabs__link md-tabs__link--active">
         Configuration
       </a>
     </li>
@@ -218,7 +225,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../" class="md-tabs__link">
+    <a href="../../examples/" class="md-tabs__link">
       Examples
     </a>
   </li>
@@ -321,12 +328,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       <label class="md-nav__link" for="__nav_3">
         Configuration
@@ -393,12 +402,14 @@
             
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
       
       <label class="md-nav__link" for="__nav_3_3">
         Tool Configuration
@@ -416,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool-configuration/configuration-terraform/" class="md-nav__link">
+      <a href="../configuration-terraform/" class="md-nav__link">
         Terraform
       </a>
     </li>
@@ -428,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool-configuration/configuration-ansible/" class="md-nav__link">
+      <a href="../configuration-ansible/" class="md-nav__link">
         Ansible
       </a>
     </li>
@@ -438,11 +449,261 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../tool-configuration/configuration-helm/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Helm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Helm
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-bitopsconfigyml" class="md-nav__link">
+    Example bitops.config.yml
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-configuration" class="md-nav__link">
+    CLI Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="CLI Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#namespace" class="md-nav__link">
+    namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeout" class="md-nav__link">
+    timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    set
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    debug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atomic" class="md-nav__link">
+    atomic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force" class="md-nav__link">
+    force
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dry-run" class="md-nav__link">
+    dry-run
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-configuration" class="md-nav__link">
+    Options Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Options Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skip-deploy" class="md-nav__link">
+    skip-deploy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-name" class="md-nav__link">
+    release-name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstall" class="md-nav__link">
+    uninstall
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kubeconfig" class="md-nav__link">
+    kubeconfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path" class="md-nav__link">
+    path
+  </a>
+  
+    <nav class="md-nav" aria-label="path">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fetch" class="md-nav__link">
+    fetch
+  </a>
+  
+    <nav class="md-nav" aria-label="fetch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enabled" class="md-nav__link">
+    enabled
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-name" class="md-nav__link">
+    cluster-name
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugin-configuration" class="md-nav__link">
+    Plugin Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugin Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#s3-plugin" class="md-nav__link">
+    S3 Plugin
+  </a>
+  
+    <nav class="md-nav" aria-label="S3 Plugin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#region" class="md-nav__link">
+    region
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bucket" class="md-nav__link">
+    bucket
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-environment-variable-configuration" class="md-nav__link">
+    Additional Environment Variable Configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Environment Variable Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skip_deploy_helm" class="md-nav__link">
+    SKIP_DEPLOY_HELM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#helm_uninstall_charts" class="md-nav__link">
+    HELM_UNINSTALL_CHARTS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -452,7 +713,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tool-configuration/configuration-cloudformation/" class="md-nav__link">
+      <a href="../configuration-cloudformation/" class="md-nav__link">
         Cloudformation
       </a>
     </li>
@@ -506,7 +767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../examples/" class="md-nav__link">
         Examples
       </a>
     </li>
@@ -616,34 +877,178 @@
               
                 
                 
-                  <h1>Index</h1>
-                
-                <p>To run this example, open a terminal in this directory and run
-<div class="highlight"><pre><span></span><code>docker run \
--e ENVIRONMENT=&quot;test&quot; \
--e AWS_ACCESS_KEY_ID=skip \
--e AWS_SECRET_ACCESS_KEY=skip \
--e AWS_DEFAULT_REGION=&quot;us-east-1&quot; \
--v $(pwd):/opt/bitops_deployment \
-bitovi/bitops:latest
-</code></pre></div></p>
-<p>We should see logs showing the before and after scripts running
-<div class="highlight"><pre><span></span><code>+ /bin/bash -x /tmp/tmp.4jcNkVb3sN/test/terraform/bitops.before-deploy.d/my-before-script.sh
-I am a before terraform lifecycle script!
-+ set -x
-+ echo &#39;I am a before terraform lifecycle script!&#39;
-...
-null_resource.test_resource: Creating...
-null_resource.test_resource: Provisioning with &#39;local-exec&#39;...
-null_resource.test_resource (local-exec): Executing: [&quot;/bin/sh&quot; &quot;-c&quot; &quot;echo I am a test terraform resource&quot;]
-null_resource.test_resource (local-exec): I am a test terraform resource
-null_resource.test_resource: Creation complete after 0s [id=8496749575343682584]
-...
-+ /bin/bash -x /tmp/tmp.4jcNkVb3sN/test/terraform/bitops.after-deploy.d/my-after-script.sh
-+ set -x
-+ echo &#39;I am a after terraform lifecycle script!&#39;
-I am a after terraform lifecycle script!
-</code></pre></div></p>
+                <h1 id="helm">Helm</h1>
+<h2 id="example-bitopsconfigyml">Example bitops.config.yml</h2>
+<div class="highlight"><pre><span></span><code>helm:
+  cli:
+    namespace: bitops
+    timeout: 60s
+    set:
+     - &quot;key1=value1&quot;
+     - &quot;key2=value2&quot;
+    debug: false
+    atomic: true
+    force: true
+    dry-run: true
+  options:
+    skip-deploy: false
+    release-name: bitops-release
+    uninstall-charts: &quot;chart1,chart2&quot;
+    kubeconfig:
+      path: ./path/to/kubeconfig
+      fetch:
+        enabled: true
+        cluster-name: my-cluster
+  plugins:
+</code></pre></div>
+<h2 id="cli-configuration">CLI Configuration</h2>
+<hr />
+<h3 id="namespace">namespace</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>namespace</code></li>
+<li><strong>Environment Variable:</strong> <code>NAMESPACE</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+<li><strong>required:</strong> yes</li>
+</ul>
+<p>namespace scope for this request</p>
+<hr />
+<h3 id="timeout">timeout</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>timeout</code></li>
+<li><strong>Environment Variable:</strong> <code>TIMEOUT</code></li>
+<li><strong>default:</strong> <code>"500s"</code></li>
+</ul>
+<p>time to wait for any individual Kubernetes operation (like Jobs for hooks) </p>
+<hr />
+<h3 id="set">set</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>set</code></li>
+<li><strong>Environment Variable:</strong> <code>HELM_SET_FLAG</code></li>
+<li><strong>default:</strong> <code>{}</code></li>
+</ul>
+<p>list of "key=value" strings to pass in to <code>helm</code> via <code>--set</code></p>
+<hr />
+<h3 id="debug">debug</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>debug</code></li>
+<li><strong>Environment Variable:</strong> <code>HELM_DEBUG</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>enable verbose helm output</p>
+<hr />
+<h3 id="atomic">atomic</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>atomic</code></li>
+<li><strong>Environment Variable:</strong> <code>TODO</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>if set, the installation process deletes the installation on failure</p>
+<hr />
+<h3 id="force">force</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>force</code></li>
+<li><strong>Environment Variable:</strong> <code>TODO</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>sets helm's <code>--force</code> flag</p>
+<hr />
+<h3 id="dry-run">dry-run</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>dry-run</code></li>
+<li><strong>Environment Variable:</strong> <code>TODO</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>simulate an install</p>
+<hr />
+<h2 id="options-configuration">Options Configuration</h2>
+<hr />
+<h3 id="skip-deploy">skip-deploy</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>skip-deploy</code></li>
+<li><strong>Environment Variable:</strong> <code>SKIP_DEPLOY</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>will skip helm execution</p>
+<hr />
+<h3 id="release-name">release-name</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>release-name</code></li>
+<li><strong>Environment Variable:</strong> <code>HELM_RELEASE_NAME</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>sets helm release name</p>
+<hr />
+<h3 id="uninstall">uninstall</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>uninstall</code></li>
+<li><strong>Environment Variable:</strong> <code>HELM_UNINSTALL</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>If true, this chart will be uninstalled instead of deployed/upgraded. If the environment variable <code>HELM_UNINSTALL</code> is passed in to the container, all BitOps managed charts for a given environment will be uninstalled.</p>
+<hr />
+<h3 id="kubeconfig">kubeconfig</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>kubeconfig</code></li>
+</ul>
+<p>configure cluster access. Has the following child-properties. Should provide one of <code>path</code> or <code>fetch</code>. Defaults to <code>fetch</code></p>
+<h3 id="path">path</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>kubeconfig.path</code></li>
+<li><strong>Environment Variable:</strong> <code>KUBE_CONFIG_PATH</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>relative file path to .kubeconfig file</p>
+<h4 id="fetch">fetch</h4>
+<ul>
+<li><strong>BitOps Property:</strong> <code>kubeconfig.fetch</code></li>
+</ul>
+<p>fetch kubeconfig using cloud provider auth</p>
+<h5 id="enabled">enabled</h5>
+<ul>
+<li><strong>BitOps Property:</strong> <code>kubeconfig.fetch.enabled</code></li>
+<li><strong>Environment Variable:</strong> <code>FETCH_KUBECONFIG</code></li>
+<li><strong>default:</strong> <code>true</code></li>
+</ul>
+<p>enables/disables kubeconfig.fetch</p>
+<h5 id="cluster-name">cluster-name</h5>
+<ul>
+<li><strong>BitOps Property:</strong> <code>kubeconfig.fetch.cluster-name</code></li>
+<li><strong>Environment Variable:</strong> <code>CLUSTER_NAME</code></li>
+<li><strong>default:</strong> <code>""</code></li>
+</ul>
+<p>cloud kubernetes cluster name for kubeconfig fetching.</p>
+<hr />
+<h2 id="plugin-configuration">Plugin Configuration</h2>
+<p>This section of <code>bitops.config.yml</code> is unique to helm and allows the customization of helm plugins</p>
+<hr />
+<h3 id="s3-plugin">S3 Plugin</h3>
+<ul>
+<li><strong>BitOps Property:</strong> <code>s3</code></li>
+</ul>
+<p>Configure <a href="https://github.com/hypnoglow/helm-s3">helm s3 plugin</a> with the following properties</p>
+<hr />
+<h4 id="region">region</h4>
+<ul>
+<li><strong>BitOps Property:</strong> <code>s3.region</code></li>
+<li><strong>Environment Variable:</strong> <code>HELM_PLUGIN_S3_REGION</code></li>
+</ul>
+<p>AWS region containing s3 bucket</p>
+<hr />
+<h4 id="bucket">bucket</h4>
+<ul>
+<li><strong>BitOps Property:</strong> <code>s3.bucket</code></li>
+<li><strong>Environment Variable:</strong> <code>HELM_CHARTS_S3_BUCKET</code></li>
+</ul>
+<p>AWS s3 bucket name</p>
+<hr />
+<h2 id="additional-environment-variable-configuration">Additional Environment Variable Configuration</h2>
+<p>Although not captured in <code>bitops.config.yml</code>, the following environment variables can be set to further customize behaviour</p>
+<hr />
+<h3 id="skip_deploy_helm">SKIP_DEPLOY_HELM</h3>
+<p>Will skill all helm executions. This superseeds all other configuration</p>
+<hr />
+<h3 id="helm_uninstall_charts">HELM_UNINSTALL_CHARTS</h3>
+<p>Comma separated string. If any of the charts to be deployed match one of the chart names listed here, it will be uninstalled with <code>helm uninstall $HELM_RELEASE_NAME</code> instead of deployed/upgraded.</p>
                 
               
               
@@ -659,6 +1064,41 @@ I am a after terraform lifecycle script!
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../configuration-ansible/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ansible" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Ansible
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../configuration-cloudformation/" class="md-footer__link md-footer__link--next" aria-label="Next: Cloudformation" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Cloudformation
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
